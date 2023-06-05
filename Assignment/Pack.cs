@@ -26,6 +26,8 @@ public class Pack
         _maxCount = maxCount;
         _maxVolume = maxVolume;
         _maxWeight = maxWeight;
+        packName = "Default Pack";
+
     }
 
     // This is called a getter
@@ -64,12 +66,11 @@ public class Pack
     }
 
     // Implement this class
-    public override string ToString() 
+    public override string ToString()
     {
-     
-     // Implement the logic to convert the object to a string representation
-    // Return the formatted string representing the object
-    return "Pack: " + packName;
+        // Implement the logic to convert the object to a string representation
+        // Return the formatted string representing the object
+        return "Pack: " + packName;
     }
 }
 
