@@ -1,5 +1,4 @@
 ﻿﻿namespace Assignment;
-
 public class Pack
 {
     private readonly InventoryItem[] _items; // You can use another data structure here if you prefer.
@@ -63,15 +62,15 @@ public class Pack
         }
         return false;
 
-    }
+}
 
-    // Implement this class
-    public override string ToString() 
-    {
-     // Implement the logic to convert the object to a string representation
+// Implement this class
+public override string ToString() 
+{
+    // Implement the logic to convert the object to a string representation
     // Return the formatted string representing the object
     return "Pack: " + _packName;
-    }
+}
 }
 
 // Come back to this once we learn about abstract classes.
