@@ -1,4 +1,5 @@
-﻿﻿namespace Assignment;
+﻿﻿
+namespace Assignment;
 public class Pack
 {
     private readonly InventoryItem[] _items; // You can use another data structure here if you prefer.
@@ -59,17 +60,15 @@ public class Pack
             _currentVolume += volume;
             _items[_currentCount++] = item;
             return true;
-        }
-        return false;
-
 }
-
+        return false;
+}
 // Implement this class
 public override string ToString() 
 {
-    // Implement the logic to convert the object to a string representation
-    // Return the formatted string representing the object
-    return "Pack: " + _packName;
+// Implement the logic to convert the object to a string representation
+// Return the formatted string representing the object
+return "Pack: " + _packName;
 }
 }
 
