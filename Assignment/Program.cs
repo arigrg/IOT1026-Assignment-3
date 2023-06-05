@@ -15,6 +15,7 @@ namespace Assignment
             const float PackMaxWeight = 30;
             Pack pack = new(PackMaxItems, PackMaxVolume, PackMaxWeight);
             PackTester.AddEquipment(pack);
+
         }
     }
 }

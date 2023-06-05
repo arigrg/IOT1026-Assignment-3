@@ -1,4 +1,4 @@
-﻿namespace Assignment;
+﻿﻿namespace Assignment;
 
 static class PackTester
 {
@@ -31,7 +31,8 @@ static class PackTester
                     3 => new Rope(),
                     4 => new Water(),
                     5 => new Food(),
-                    6 => new Sword()
+                    6 => new Sword(),
+                    _ => throw new NotImplementedException($"Choice '{choice}' is not supported."),
                 };
                 if (!pack.Add(newItem))
                 {
