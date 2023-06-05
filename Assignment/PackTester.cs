@@ -1,4 +1,4 @@
-﻿﻿namespace Assignment;
+﻿namespace Assignment;
 
 static class PackTester
 {
