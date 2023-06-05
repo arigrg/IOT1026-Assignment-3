@@ -5,12 +5,13 @@
         private readonly InventoryItem[] _items; // You can use another data structure here if you prefer.
         // You may need another private member variable if you use an array data structure.
 
-        private readonly int _maxCount;
-        private readonly float _maxVolume;
-        private readonly float _maxWeight;
-        private int _currentCount; // Defaults to 0
-        private float _currentVolume;
-        private float _currentWeight;
+        private readonly int _maxCount; // Maximum number of items the pack can hold
+
+        private readonly float _maxVolume; // Maximum volume the pack can hold
+        private readonly float _maxWeight; // Maximum weight the pack can hold
+        private int _currentCount; // Current number of items in the pack (defaults to 0)
+        private float _currentVolume; // Current total volume of items in the pack
+        private float _currentWeight; // Current total weight of items in the pack
         private string _packName;
 
         // Default constructor sets the maxCount to 10 
@@ -21,11 +22,11 @@
         // This constructor is not complete, but it is a good start.
         public Pack(int maxCount, float maxVolume, float maxWeight)
         {
-            _items = new InventoryItem[maxCount];
-            _maxCount = maxCount;
-            _maxVolume = maxVolume;
-            _maxWeight = maxWeight;
-            _packName = "Default Pack";
+            _items = new InventoryItem[maxCount]; // Initialize the array with the maximum count
+            _maxCount = maxCount; // Set the maximum count
+            _maxVolume = maxVolume; // Set the maximum volume
+            _maxWeight = maxWeight; // Set the maximum weight
+            _packName = "Default Pack"; // Set the pack name to a default value
         }
 
         // This is called a getter
@@ -33,12 +34,12 @@
         {
             return _maxCount;
         }
-
+        // Getter for retrieving the current volume of items in the pack
         public float GetVolume()
         {
             return _currentVolume;
         }
-
+        // Method to add an inventory item to the pack
         public bool Add(InventoryItem item)
         {
             // In the `Add` method, check if adding the item would exceed the pack's 
@@ -54,15 +55,16 @@
             float volume = item.GetVolume();
             if (volume <= _maxVolume)
             {
-                _currentWeight += weight;
-                _currentVolume += volume;
-                _items[_currentCount++] = item;
-                return true;
+                _currentWeight += weight; // Add the item's weight to the current weight
+                _currentVolume += volume; // Add the item's volume to the current volume
+                _items[_currentCount++] = item; // Add the item to the array and increment the current count
+                return true; // Item added successfully, return true
+
             }
             return false;
         }
 
-        // Implement this class
+        // Override ToString() method to provide a string representation of the pack
         public override string ToString()
         {
             // Implement the logic to convert the object to a string representation
@@ -71,23 +73,24 @@
         }
     }
 
-    // Come back to this once we learn about abstract classes.
+    // Abstract class representing an inventory item
     public abstract class InventoryItem
     {
-        private readonly float _volume;
-        private readonly float _weight;
-
+        private readonly float _volume; // Volume of the item
+        private readonly float _weight; // Weight of the item
+        // Constructor to initialize the volume and weight of the item
         protected InventoryItem(float volume, float weight)
         {
             if (volume <= 0f || weight <= 0f)
             {
                 throw new ArgumentOutOfRangeException($"An item can't have {volume} volume or {weight} weight");
             }
-            _volume = volume;
-            _weight = weight;
+            _volume = volume; // Set the volume
+
+            _weight = weight; // Set the weight
         }
 
-        // Returns a string representing the quantities of the item (volume & weight of the item)
+        // Abstract method to display the quantities of the item (volume and weight)
         public abstract string Display();
 
         // Getters
@@ -95,7 +98,7 @@
         {
             return _volume;
         }
-
+        // Getter for retrieving the weight of the item
         public float GetWeight()
         {
             return _weight;
